@@ -1,6 +1,7 @@
 const express = require('express');
 const send = require('../controllers/send');
-const testMiddleware = require('../middlewares/test.middleware');
+const logRequest = require('../middlewares/logRequest');
+const parseUser = require('../middlewares/parseUser');
 
 const route = express.Router();
 
@@ -10,7 +11,8 @@ const route = express.Router();
 // });
 
 route.post('/',
-    testMiddleware,
+    parseUser,
+    logRequest,
     send
 );
 
